@@ -1,18 +1,29 @@
-# Pyspark_practice
-##Learning Objectives
+# 🚀 PySpark with Databricks – Complete Learning Journey
 
-###By completing this journey, I aim to:
+## 📌 Overview
+This repository documents my **structured learning journey of PySpark using Databricks**, focused on **real-world data engineering practices**.  
+It covers **Spark fundamentals → advanced transformations → performance optimization → Delta Lake → end-to-end ETL pipelines**.
 
--Understand Apache Spark fundamentals using PySpark
+The repository is designed to:
+- Build **strong PySpark fundamentals**
+- Practice **industry-standard data engineering workflows**
 
--Work confidently with Databricks notebooks and clusters
+---
 
--Perform efficient data transformations using Spark DataFrames
+## 🎯 Goals of This Repository
+- Learn PySpark **from basics to production-level usage**
+- Understand how Spark is used **inside Databricks**
+- Write **optimized and scalable Spark code**
+- Build **ETL pipelines** following best practices
+- Apply **Delta Lake** with Bronze, Silver, Gold architecture
 
--Apply Spark SQL, window functions, and joins
+---
 
--Optimize Spark jobs for performance
+## 🧠 Learning Methodology
+Each topic in this repository follows a **consistent structure**:
 
--Build end-to-end ETL pipelines
+- 📘 Concept explanation (Markdown)
+- 🧪 Hands-on Databricks notebooks (PySpark)
+- 🧩 Real-world use cases
 
--Use Delta Lake with Bronze, Silver, and Gold layers
+
