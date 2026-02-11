@@ -186,6 +186,81 @@ Each numbered set represents **one learning phase**, making it easy for visitors
 - Difference between ranking and value functions
 - Real-world analytical use cases
 
+---
+
+### 🔹 Phase 10 – Date & Time Functions
+
+#### 📘 `10_Date_n_Time_Functions.pdf`
+**Covers:**
+
+**1️⃣ Date Conversion & Parsing**
+- `to_date()` (default & custom formats)
+- Handling invalid parsing (NULL behavior)
+- Managing multiple date formats using `coalesce()`
+- Converting timestamp → date
+- Default Spark date format expectations
+
+**2️⃣ Timestamp Handling**
+- `to_timestamp()` (default & custom formats)
+- ISO format handling (`yyyy-MM-dd'T'HH:mm:ss`)
+- Comparing `to_date()` vs `to_timestamp()`
+- Timestamp precision & timezone behavior
+- Converting date → timestamp
+
+**3️⃣ Date Formatting**
+- `date_format()` for presentation
+- Formatting patterns (`yyyy`, `MM`, `dd`, `HH`, etc.)
+- Creating report-friendly columns
+- Partition column formatting
+- Why NOT to use `date_format()` for filtering
+
+**4️⃣ Current Date & Time**
+- `current_date()`
+- `current_timestamp()`
+- Audit column creation
+- Incremental load filtering
+- Measuring ingestion delay
+
+**5️⃣ Date Arithmetic**
+- `date_add()`
+- `date_sub()`
+- Using intervals
+- Handling negative values
+- Timestamp input conversion
+- Incremental & SLA use cases
+
+**6️⃣ Month Operations**
+- `add_months()`
+- Handling month length differences
+- Negative month adjustments
+- Dynamic month shifting
+
+**7️⃣ Date Difference Functions**
+- `datediff()`
+- `months_between()`
+- Age calculation logic
+- Timestamp handling in differences
+- Fractional month behavior
+- Rounding months
+
+**8️⃣ Date Part Extraction**
+- `year()`
+- `month()`
+- `dayofmonth()`
+- `dayofweek()`
+- `dayofyear()`
+- `weekofyear()`
+- ISO week rules
+- Weekend identification logic
+- Extracting day names using `date_format()`
+
+**9️⃣ Timezone Handling**
+- Session timezone awareness
+- `from_utc_timestamp()`
+- `to_utc_timestamp()`
+- Timestamp timezone conversion behavior
+
+
 ## 📈 Future Learning Phases
 Additional learning phases will be added in the same structured format:
 -
