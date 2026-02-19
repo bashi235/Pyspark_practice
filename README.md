@@ -261,6 +261,105 @@ Each numbered set represents **one learning phase**, making it easy for visitors
 - Timestamp timezone conversion behavior
 
 
+---
+
+### 🔹 Phase 11 – RDD Core Transformations & Performance Concepts
+
+#### 📘 `11_rdd_map_flatMap_reduceByKey_groupByKey_partitioning_cache_persist.pdf`
+**Covers:**
+
+**RDD Transformations**
+- `map()`
+- `flatMap()`
+- `filter()`
+- `reduceByKey()`
+- `groupByKey()`
+- Difference between `reduceByKey` vs `groupByKey`
+- Key-based aggregations
+
+**Partitioning**
+- Default partition behavior
+- Hash partitioning
+- Custom partitioning logic
+- Controlling number of partitions
+- Performance impact of partition size
+
+**Caching & Persistence**
+- `cache()`
+- `persist()`
+- Storage levels
+- Memory vs disk persistence
+- When to cache
+- When NOT to cache
+- Performance optimization strategies
+
+---
+
+### 🔹 Phase 12 – Spark Actions & Driver-Side Operations
+
+#### 📘 `12_collect_take_foreach_toPandas_transformation_action.pdf`
+**Covers:**
+
+**Driver-Side Actions**
+- `collect()` (full data retrieval)
+- `take(n)`
+- `foreach()`
+- `foreachPartition()`
+- `toPandas()`
+
+**Behavior & Internals**
+- What happens when `collect()` is called
+- Driver memory risks
+- Why large collect crashes drivers
+- `take()` execution optimization
+- Difference between `collect()` and `take()`
+- Executor-side execution of `foreach()`
+- When to use `foreachPartition()` for database writes
+- Why `toPandas()` is memory intensive
+
+**Transformations vs Actions**
+- Lazy evaluation
+- DAG creation
+- Stage creation at shuffle boundaries
+- Execution flow when action is triggered
+- Why Spark uses lazy execution
+- Interview-focused action behavior questions
+
+---
+
+### 🔹 Phase 13 – Advanced Grouping & Approximate Aggregations
+
+#### 📘 `13_cube_rollup_grouping-sets_approx-count-distinct.pdf`
+**Covers:**
+
+**Advanced Aggregations**
+- `cube()` – multi-dimensional aggregation
+- Number of grouping combinations (2^N)
+- Null rows meaning in cube output
+- Performance impact of cube
+
+**Hierarchical Aggregation**
+- `rollup()` – hierarchical subtotal generation
+- N+1 grouping levels
+- Difference between cube and rollup
+- When rollup is preferred
+
+**Custom Grouping**
+- `grouping sets`
+- Selecting specific grouping combinations
+- Difference: cube vs rollup vs grouping sets
+- Performance considerations
+
+**Approximate Aggregation**
+- `approx_count_distinct()`
+- HyperLogLog algorithm
+- Memory-efficient distinct counting
+- Relative error control
+- Difference between `countDistinct()` vs `approx_count_distinct()`
+- Performance trade-offs
+
+
+
 ## 📈 Future Learning Phases
 Additional learning phases will be added in the same structured format:
 -
