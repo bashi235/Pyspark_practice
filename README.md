@@ -359,6 +359,139 @@ Each numbered set represents **one learning phase**, making it easy for visitors
 - Performance trade-offs
 
 
+---
+
+### 🔹 Phase 14 – Spark Execution, Optimization & Performance Internals
+
+---
+
+#### 📘 `14_I_Execution-plan-Basics.pdf`
+**Covers:**
+
+- What happens internally when an action is triggered
+- Logical Plan vs Physical Plan
+- Unresolved → Analyzed → Optimized logical plan
+- Physical plan creation
+- Job → Stage → Task breakdown
+- Shuffle boundary & stage splitting
+- `explain()` modes:
+  - simple
+  - extended
+  - formatted
+- How to read execution plan (bottom-up reading)
+- Exchange operator meaning
+- Spark UI vs explain comparison
+
+---
+
+#### 📘 `14_II_Catalyst-optimizer.pdf`
+**Covers:**
+
+- What is Catalyst Optimizer
+- Rule-Based Optimization (RBO)
+- Cost-Based Optimization (CBO)
+- Predicate Pushdown
+- Column Pruning
+- Projection Pruning
+- Constant Folding
+- Join Reordering
+- Why transformation order doesn’t matter logically
+- Enabling CBO
+- Table statistics importance
+- Logical vs physical optimization boundaries
+
+---
+
+#### 📘 `14_III_Shuffle-Intervals.pdf`
+**Covers:**
+
+- What exactly is Shuffle
+- Narrow vs Wide transformations
+- When shuffle happens
+- Exchange operator types:
+  - hashpartitioning
+  - rangepartitioning
+  - broadcast exchange
+- Shuffle write phase
+- Shuffle read phase
+- `spark.sql.shuffle.partitions`
+- Choosing optimal shuffle partitions
+- Data skew basics
+- Sort-based shuffle
+- Why shuffle is expensive:
+  - disk IO
+  - network transfer
+  - serialization/deserialization
+  - memory pressure
+  - stage boundary cost
+
+---
+
+#### 📘 `14_IV_Partitioning-and-Parallelism.pdf`
+**Covers:**
+
+- How number of tasks are determined
+- How partitions are created initially
+- Effect of file size & block size
+- `spark.default.parallelism`
+- `spark.sql.files.maxPartitionBytes`
+- repartition() vs coalesce()
+- Hash partitioning vs Range partitioning
+- partitionBy() during write
+- Small files problem
+- Static partition pruning
+- Dynamic partition pruning
+- Detecting pruning via explain plan
+- How partition count affects parallelism
+
+---
+
+#### 📘 `14_V_Join-Optimization.pdf`
+**Covers:**
+
+- Logical vs Physical join
+- Physical join strategies:
+  - Broadcast Hash Join
+  - Sort Merge Join
+  - Shuffle Hash Join
+  - Broadcast Nested Loop Join
+- How Spark chooses join strategy
+- autoBroadcastJoinThreshold
+- Join hints:
+  - BROADCAST
+  - MERGE
+- Cost-based join decision
+- Join skew detection
+- Skew join optimization techniques:
+  - Salting
+  - Broadcast workaround
+  - Repartition by extra column
+  - Adaptive Query Execution (AQE)
+- Detecting skew in Spark UI
+
+---
+
+#### 📘 `14_VI_Caching-and-Memory-Internals.pdf`
+**Covers:**
+
+- DataFrame cache vs RDD cache
+- Storage levels:
+  - MEMORY_ONLY
+  - MEMORY_AND_DISK
+  - DISK_ONLY
+  - OFF_HEAP
+  - Serialized storage
+- Tungsten Engine
+- WholeStageCodegen
+- On-Heap vs Off-Heap memory
+- GC pressure
+- Garbage collection types (Minor vs Full GC)
+- Spill behavior (memory spill vs disk spill)
+- Detecting spill in Spark UI
+- Executor memory breakdown
+- When caching slows performance
+- persist() strategy selection
+
 
 ## 📈 Future Learning Phases
 Additional learning phases will be added in the same structured format:
