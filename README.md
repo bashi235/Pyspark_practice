@@ -492,6 +492,194 @@ Each numbered set represents **one learning phase**, making it easy for visitors
 - When caching slows performance
 - persist() strategy selection
 
+---
+
+### 🔹 Phase 15 – Delta Lake (Lakehouse Storage Layer)
+
+---
+
+#### 📘 `15_Delta-Lake_I_Foundations-of-Delta-lake.pdf`
+**Covers:**
+
+- Problems with traditional Data Lakes (Parquet only)
+- Lack of ACID transactions
+- No concurrency control
+- Difficulty performing UPDATE / DELETE
+- Schema enforcement issues
+- No built-in version history
+- Small file problem
+- Introduction to Delta Lake
+- Delta architecture
+- Delta = Parquet files + Transaction log + Snapshot engine
+- Understanding `_delta_log`
+- Delta table versioning
+- Snapshot concept and how Spark reconstructs table state
+
+---
+
+#### 📘 `15_Delta-Lake_II_Creating-writing-delta-tables.pdf`
+**Covers:**
+
+- Creating Delta tables
+- Writing data using Delta format
+- Managed vs External Delta tables
+- Registering existing Delta paths as tables
+- Converting Parquet tables to Delta
+- Write modes:
+  - append
+  - overwrite
+  - ignore
+  - errorIfExists
+- Schema enforcement
+- Schema evolution
+- `mergeSchema`
+- Auto merge configuration
+- Partitioned Delta tables
+- `replaceWhere` for safe partition overwrite
+- Constraints in Delta:
+  - NOT NULL
+  - CHECK constraints
+- Generated columns
+- Identity columns
+- Metadata inspection:
+  - DESCRIBE DETAIL
+  - DESCRIBE HISTORY
+
+---
+
+#### 📘 `15_Delta-Lake_III_DML-operations.pdf`
+**Covers:**
+
+- Delta DML operations
+- UPDATE operations
+- DELETE operations
+- MERGE (UPSERT)
+- Merge syntax and workflow
+- Multiple `whenMatched` conditions
+- Handling duplicate keys in source
+- Merge optimization strategies
+- Slowly Changing Dimensions (SCD)
+
+**SCD Type 1**
+- Overwrite existing records
+- Implemented using MERGE
+
+**SCD Type 2**
+- Maintaining full historical records
+- Expiring old rows
+- Creating new versions
+- Tracking:
+  - start_date
+  - end_date
+  - is_current
+
+- Hash comparison strategy for change detection
+
+---
+
+#### 📘 `15_Delta-Lake_IV_Change-Data-Feed.pdf`
+**Covers:**
+
+- What is Change Data Feed (CDF)
+- Why CDF is needed
+- Incremental change tracking
+- Enabling CDF on Delta tables
+- Enabling CDF for existing tables
+- Reading CDF data
+- Metadata columns in CDF:
+  - `_change_type`
+  - `_commit_version`
+  - `_commit_timestamp`
+- Change types tracked:
+  - insert
+  - delete
+  - update_preimage
+  - update_postimage
+- Using CDF for incremental pipelines
+- Using CDF in streaming pipelines
+- CDF performance considerations
+
+---
+
+#### 📘 `15_Delta-Lake_V_Time-Travel-and-Data-Recovery.pdf`
+**Covers:**
+
+- Delta Time Travel concept
+- Reading historical versions of data
+- Version-based querying
+- Timestamp-based querying
+- Query syntax using SQL
+- PySpark time travel queries
+- Viewing Delta table history
+- `DESCRIBE HISTORY`
+- Data restoration after accidental delete
+- Snapshot reconstruction using `_delta_log`
+
+---
+
+#### 📘 `15_Delta-Lake_VI_Delta-Performance-Optimization.pdf`
+**Covers:**
+
+- Why Delta tables become slow over time
+- Small file problem
+- File compaction
+- OPTIMIZE command
+- How OPTIMIZE works internally
+- Compacting partitions
+- Scheduling optimization jobs
+
+**Z-Ordering**
+
+- Clustering related data inside files
+- Improving data skipping
+- Syntax:
+  `OPTIMIZE table ZORDER BY (column)`
+- Z-order with multiple columns
+
+**Performance Techniques**
+
+- Data skipping
+- Statistics collection
+- Predicate pushdown
+- Partition pruning vs Z-order
+- Bloom filters
+
+---
+
+#### 📘 `15_Delta-Lake_VII_Vaccum-and-storage-managemnet.pdf`
+**Covers:**
+
+- VACUUM command
+- Cleaning old files from storage
+- Retention period
+- Default retention (7 days)
+- Storage cleanup process
+- Why VACUUM can be dangerous
+- Impact on time travel
+- How Delta tracks active vs inactive files
+- Safe VACUUM practices
+- Managing Delta storage lifecycle
+
+---
+
+#### 📘 `15_Delta-Lake_VIII_Delta-Internals-and-Architecture.pdf`
+**Covers:**
+
+- Delta transaction protocol
+- Delta commit process
+- ACID guarantees in Delta
+- Optimistic Concurrency Control (OCC)
+- Conflict detection during commits
+- Snapshot isolation
+- Write conflict scenarios
+- Delta version creation
+- Commit workflow
+- Delta log structure
+- Metadata actions inside `_delta_log`
+- How Delta ensures atomic writes
+- Delta vs Iceberg vs Hudi comparison
+- Delta in streaming architectures
+
 
 ## 📈 Future Learning Phases
 Additional learning phases will be added in the same structured format:
